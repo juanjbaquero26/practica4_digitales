@@ -56,12 +56,14 @@ process (sw)
 			      elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 190) and (pix_y <= 290))) then rgb_out <= azul;
 		              elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 290) and (pix_y <= 390))) then rgb_out <= rojo;
 			      else rgb_out <= negro;
+			      end if;
 
 		when "001" => --deutschland
 			      if (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 90) and (pix_y <= 190))) then rgb_out <= negro; 
 			      elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 190) and (pix_y <= 290))) then rgb_out <= rojo;
 		              elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 290) and (pix_y <= 390))) then rgb_out <= amarillo;
 			      else rgb_out <= blanco;
+			      end if;
 
 		when "101" =>    --ecuador
 			      if ((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 90) and (pix_y <= 190)) then rgb_out <= amarillo;
@@ -72,6 +74,7 @@ process (sw)
 			      elsif (((pix_x >= 381) and (pix_x <= 500) and (pix_y >= 240) and (pix_y <= 315))) then rgb_out <= azul;
 		              elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 315) and (pix_y <= 390))) then rgb_out <= rojo;
 			      else rgb_out <= blanco;
+			      
 
 		when "110" => --bolivia
 			      if (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 90) and (pix_y <= 190))) then rgb_out <= rojo; 
