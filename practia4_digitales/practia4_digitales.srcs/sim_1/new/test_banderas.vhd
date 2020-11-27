@@ -43,12 +43,12 @@ architecture tb of tb_Simple_Test_VGA is
 
     signal clk     : std_logic;
     signal reset   : std_logic;
-    signal sw      : std_logic_vector (2 downto 0);
+    signal sws      : std_logic_vector (2 downto 0);
     signal hsync   : std_logic;
     signal vsync   : std_logic;
     signal rgb_out : std_logic_vector (11 downto 0);
 
-    constant TbPeriod : time := 20 ns; -- EDIT Put right period here
+    constant TbPeriod : time := 20000 ns; -- EDIT Put right period here
     signal TbClock : std_logic := '0';
     signal TbSimEnded : std_logic := '0';
 
@@ -57,7 +57,7 @@ begin
     dut : Simple_Test_VGA
     port map (clk     => clk,
               reset   => reset,
-              sw      => sw,
+              sw      => sws,
               hsync   => hsync,
               vsync   => vsync,
               rgb_out => rgb_out);
@@ -74,23 +74,22 @@ begin
         reset <= '1';
         wait for 20 ns;
         reset <= '0';
-        sw <= "000";
+        sws <= "000";
         wait until vsync'event and vsync='0'; 
         reset <= '0';
-        sw <= "001";
+        sws <= "001";
         wait until vsync'event and vsync='0'; 
-        sw <= "010";
+        sws <= "010";
         wait until vsync'event and vsync='0'; 
-        sw <= "011";
+        sws <= "011";
         wait until vsync'event and vsync='0';
-        sw <= "100";
+        sws <= "100";
         wait until vsync'event and vsync='0';
-        sw <="101";
+        sws <="101";
         wait until vsync'event and vsync='0'; 
-        sw<="110";
+        sws<="110";
         wait until vsync'event and vsync='0'; 
-        sw <= "111";
-        wait until vsync'event and vsync='0';    
+        sws <= "111";   
     end process;
     
     process (clk)
@@ -114,20 +113,20 @@ begin
 			write(line_el, string'(" "));
 			write(line_el, vsync); -- write the line.
 
-			-- Write the color
+			-- Write the red
 			write(line_el, string'(" "));
-			write(line_el, rgb_out(11 downto 0)); -- write the line (Red color).
+			write(line_el, rgb_out(11 downto 8)); -- write the line (Red color).
 			--write(line_el, red); -- write the line (Red color).
 
 			-- Write the green
-			--write(line_el, string'(" "));
-			--write(line_el, rgb_out(7 downto 4)); -- write the line (Green color).
+			write(line_el, string'(" "));
+			write(line_el, rgb_out(7 downto 4)); -- write the line (Green color).
 			--write(line_el, green); -- write the line (Green color).
 
 
         	-- Write the blue
-        	--write(line_el, string'(" "));
-			--write(line_el, rgb_out(3 downto 0)); -- write the line (Blue color).
+        	write(line_el, string'(" "));
+			write(line_el, rgb_out(3 downto 0)); -- write the line (Blue color).
 			--write(line_el, blue); -- write the line (Blue color).
 
     	    writeline(file_pointer, line_el); -- write the contents into the file.

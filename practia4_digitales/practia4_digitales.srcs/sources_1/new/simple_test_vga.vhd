@@ -28,7 +28,7 @@ use UNISIM.vcomponents.all;
 
 entity Simple_Test_VGA is
     Port(  clk, reset: in std_logic;
-		   sw: in std_logic_vector(1 downto 0);
+		   sw: in std_logic_vector(2 downto 0);
 		   hsync, vsync: out std_logic;
 		   rgb_out: out std_logic_vector(11 downto 0)
         );
@@ -48,7 +48,7 @@ end component;
 component draw is
     Port ( pix_x : in STD_LOGIC_VECTOR (9 downto 0);
            pix_y : in STD_LOGIC_VECTOR (9 downto 0);
-           sw : in STD_LOGIC_VECTOR (1 downto 0);
+           sw : in STD_LOGIC_VECTOR (2 downto 0);
            video_on: in std_logic;
            rgb_out : out STD_LOGIC_VECTOR (11 downto 0));
 end component;

@@ -1,0 +1,12 @@
+
+{ 
+    crc :  9702970123853209920  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto ebb7f0e66a9e40c7ac643fdc1ad86573 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_Simple_Test_VGA_behav xil_defaultlib.tb_Simple_Test_VGA" , 
+    buildDate : "May 27 2020" , 
+    buildTime : "20:09:33" , 
+    linkCmd : "E:\\xlinix\\Vivado\\2020.1\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/tb_Simple_Test_VGA_behav/xsimk.exe\"   \"xsim.dir/tb_Simple_Test_VGA_behav/obj/xsim_0.win64.obj\" \"xsim.dir/tb_Simple_Test_VGA_behav/obj/xsim_1.win64.obj\" -L\"E:\\xlinix\\Vivado\\2020.1\\lib\\win64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

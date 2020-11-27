@@ -153,12 +153,13 @@ process (sw)
 			      else rgb_out <= blanco;
 			      end if;
 
-		when "111" => --colombia
+		when others => --colombia
 			      if (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 90) and (pix_y <= 240))) then rgb_out <= amarillo; 
 			      elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 240) and (pix_y <= 315))) then rgb_out <= azul;
 		              elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 315) and (pix_y <= 390))) then rgb_out <= rojo;
 			      else rgb_out <= blanco;
 			      end if;
+	   
 			   
 end case;
 end process;
