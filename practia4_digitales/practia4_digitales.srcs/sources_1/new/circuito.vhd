@@ -43,28 +43,29 @@ begin
 
 negro <= x"000";
 rojo <=x"F00";
-verde <=x"0B4";
-azul <=x"0F0";
+verde <=x"0B1";
+azul <=x"03f";
 blanco<=x"FFF";
-amarillo <=x"4b0";
+amarillo <=x"ff0";
 
-process (sw)
+process (sw,pix_x,pix_y)
 	begin
 	case sw is
 		when "000" => --rusia
-			      if (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 90) and (pix_y <= 190))) then rgb_out <= blanco; 
-			      elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 190) and (pix_y <= 290))) then rgb_out <= azul;
-		              elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 290) and (pix_y <= 390))) then rgb_out <= rojo;
-			      else rgb_out <= negro;
+			      if (((pix_x >= 140) and (pix_x <= 500)) and ((pix_y >= 90) and (pix_y <= 190))) then rgb_out <= blanco; 
+			      elsif (((pix_x >= 140) and (pix_x <= 500)) and ((pix_y >= 190) and (pix_y <= 290))) then rgb_out <= azul;
+		              elsif (((pix_x >= 140) and (pix_x <= 500)) and ((pix_y >= 290) and (pix_y <= 390))) then rgb_out <= rojo;
+			      else rgb_out <= verde;
 			      end if;
 
 		when "001" => --deutschland
-			      if (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 90) and (pix_y <= 190))) then rgb_out <= negro; 
-			      elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 190) and (pix_y <= 290))) then rgb_out <= rojo;
-		              elsif (((pix_x >= 140) and (pix_x <= 500) and (pix_y >= 290) and (pix_y <= 390))) then rgb_out <= amarillo;
+			      if (((pix_x >= 140) and (pix_x <= 500)) and ((pix_y >= 90) and (pix_y <= 190))) then rgb_out <= negro; 
+			      elsif (((pix_x >= 140) and (pix_x <= 500)) and ((pix_y >= 190) and (pix_y <= 290))) then rgb_out <= rojo;
+		              elsif (((pix_x >= 140) and (pix_x <= 500)) and ((pix_y >= 290) and (pix_y <= 390))) then rgb_out <= amarillo;
 			      else rgb_out <= blanco;
 			      end if;
 		when "010" => --australia
+				if (((pix_x >= 0) and (pix_x <= 139)) and ((pix_y >= 0) and (pix_y <= 89))) then rgb_out <= blanco; end if; 
 				if (((pix_x >= 140) and (pix_x <= 205)) and ((pix_y >= 90) and (pix_y <= 125))) then rgb_out <= blanco; end if; 
                 if (((pix_x >= 206) and (pix_x <= 235)) and ((pix_y >= 90) and (pix_y <= 125))) then rgb_out <= rojo; end if;
                 if (((pix_x >= 236) and (pix_x <= 300)) and ((pix_y >= 90) and (pix_y <= 125))) then rgb_out <= blanco; end if;

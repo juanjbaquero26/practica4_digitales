@@ -48,7 +48,7 @@ architecture tb of tb_Simple_Test_VGA is
     signal vsync   : std_logic;
     signal rgb_out : std_logic_vector (11 downto 0);
 
-    constant TbPeriod : time := 20000 ns; -- EDIT Put right period here
+    constant TbPeriod : time := 20 ns; -- EDIT Put right period here
     signal TbClock : std_logic := '0';
     signal TbSimEnded : std_logic := '0';
 
